@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dd6c49c8-7478-4bf2-959e-c9eee17fc830">
+	<property name="net.sf.jasperreports.chart.pie.ignore.duplicated.key" value="true"/>
+        <field name="modulo" class="java.lang.String"/>
+	<group name="MODULOS">
+		<groupExpression><![CDATA[$F{modulo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" forecolor="#000099" uuid="f5e9bd1f-799d-4675-bd2a-b38fb58161da"/>
+				<textElement textAlignment="Center">
+					<font fontName="Gadugi" size="26" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Informe de sectores de la matriculación en módulos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="304" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="0" y="0" width="555" height="304" uuid="68ea05b0-8590-4f0c-8ae9-cb217ae052c6"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{modulo}]]></keyExpression>
+					<valueExpression><![CDATA[$V{MODULOS_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$V{MODULOS_COUNT}.toString()]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

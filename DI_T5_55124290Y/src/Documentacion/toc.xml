@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toc version="1.0">
+    <tocitem text="Manual de Ayuda">
+        <tocitem text="Menú" target="target_menu"/>
+        <tocitem text="Inicio" target="target_inicio"/>
+    </tocitem>
+</toc>

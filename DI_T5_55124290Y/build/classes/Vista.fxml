@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VistaController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Ayuda">
+            <items>
+              <MenuItem fx:id="btnAyuda" mnemonicParsing="false" onAction="#abrirAyuda" text="Manual de Ayuda">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="F1" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Pane prefHeight="76.0" prefWidth="380.0" style="-fx-background-color: #7db88c;">
+         <children>
+            <Label alignment="CENTER" prefHeight="67.0" prefWidth="380.0" text="Generador de informes">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="295.0" prefWidth="380.0" style="-fx-background-color: #4592cc;">
+         <children>
+            <VBox prefHeight="293.0" prefWidth="380.0">
+               <children>
+                  <Button fx:id="btnMatriculadosDI" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#matriculadosDI" prefWidth="240.0" text="Matriculados en DI">
+                     <font>
+                        <Font name="System Bold Italic" size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="70.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnGraficoSectores" mnemonicParsing="false" onAction="#graficoSectores" prefWidth="240.0" text="Gráfico por sectores">
+                     <VBox.margin>
+                        <Insets left="70.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold Italic" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnGraficoBarras" mnemonicParsing="false" onAction="#graficoBarras" prefWidth="240.0" text="Grafico de barras">
+                     <VBox.margin>
+                        <Insets left="70.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold Italic" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#salir" prefWidth="100.0" text="Salir">
+                     <VBox.margin>
+                        <Insets left="140.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold Italic" size="22.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</VBox>

@@ -1,4 +1,9 @@
-
+/**
+ * Módulo: DI
+ * Archivo: VistaController.java
+ * Objetivo: Controlar los eventos relacionados con la ventana principal
+ * Equipo/Personas: Nicolás Esteban Bórquez
+ */
 import java.io.File;
 import java.net.MalformedURLException;
 import modelo.Alumno;
@@ -21,13 +26,35 @@ import javax.help.HelpSetException;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.fxutils.viewer.JasperViewerFX;
 
+/**
+ * Esta clase es el Controller que gestiona la vista de la aplicación Esta clase hereda de Initializable.
+ *
+ * @see Initializable
+ *
+ * @author Nicolás Esteban Borquez
+ * @version 1.0
+ */
 public class VistaController implements Initializable {
 
+    /**
+     * ArrayList donde se almacenan los objetos Alumno.
+     */
     private ArrayList<Alumno> lista = new ArrayList<>();
 
+    /**
+     * Botones utilizados en la interfaz.
+     */
+    @FXML
+    private Button btnMatriculadosDI, btnGraficoSectores, btnGraficoBarras, btnSalir;
+
+    /**
+     * Método que se ejecuta al inicializar el controlador.
+     *
+     * @param url Ubicación utilizada para resolver rutas relativas para el objeto raíz, o null si no se conoce su ubicación.
+     * @param rb Recursos utlizados para localizar el objeto raíz, o null si el objeto raíz puede ser localizado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
         //Alumnos DI (10)
         lista.add(new Alumno("45687525R", "DI", 6.5, "Córdoba"));
         lista.add(new Alumno("25348955F", "DI", 6.0, "Granada"));
@@ -64,9 +91,11 @@ public class VistaController implements Initializable {
         Collections.sort(lista);
     }
 
-    @FXML
-    Button btnMatriculadosDI, btnGraficoSectores, btnGraficoBarras, btnSalir;
-
+    /**
+     * Método que muestra, con JasperViewFX, el informe de los alumnos matriculados en DI.
+     *
+     * @param event Evento lanzado por el usuario al seleccional esta opción.
+     */
     @FXML
     private void matriculadosDI(ActionEvent event) {
         try {
@@ -89,6 +118,11 @@ public class VistaController implements Initializable {
         }
     }
 
+    /**
+     * Método que muestra el gráfico de sectores con JasperViewFX
+     *
+     * @param event Evento lanzado por el usuario al seleccional esta opción.
+     */
     @FXML
     private void graficoSectores(ActionEvent event) {
         try {
@@ -111,9 +145,13 @@ public class VistaController implements Initializable {
         }
     }
 
+    /**
+     * Método que muestra el gráfico de barras con JasperViewFX
+     *
+     * @param event Evento lanzado por el usuario al seleccional esta opción.
+     */
     @FXML
     private void graficoBarras(ActionEvent event) {
-
         try {
             //Se define la colección de datos que se usará en el informe
             JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(lista);
@@ -134,17 +172,17 @@ public class VistaController implements Initializable {
         }
     }
 
-    @FXML
-    public void salir() {
-        System.exit(0);
-    }
-
+    /**
+     * Método que abre el sistema integrado de Ayudas JavaHelp.
+     *
+     * @param event Evento lanzado por el usuario al seleccional esta opción.
+     */
     @FXML
     public void abrirAyuda(ActionEvent event) {
         try {
             //Se lee el fichero de configuracion de JavaHelp
             File fichero = new File("src\\Documentacion\\help_set.hs");
-            URL hsURL = fichero.toURI().toURL(); 
+            URL hsURL = fichero.toURI().toURL();
             HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
 
             // Se crea el objeto HelBroker que permite manejar las ventanas de JavaHelp
@@ -158,5 +196,15 @@ public class VistaController implements Initializable {
         } catch (HelpSetException ex) {
             Logger.getLogger(VistaController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    /**
+     * Método que cierra la aplicación.
+     *
+     * @param event Evento lanzado por el usuario al seleccional esta opción.
+     */
+    @FXML
+    public void salir(ActionEvent event) {
+        System.exit(0);
     }
 }

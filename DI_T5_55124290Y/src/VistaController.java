@@ -181,7 +181,7 @@ public class VistaController implements Initializable {
     public void abrirAyuda(ActionEvent event) {
         try {
             //Se lee el fichero de configuracion de JavaHelp
-            File fichero = new File("src\\Documentacion\\help_set.hs");
+            File fichero = new File("Documentacion/help_set.hs");
             URL hsURL = fichero.toURI().toURL();
             HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
 
